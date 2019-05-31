@@ -1,8 +1,10 @@
-<div>
+<div >
   <h1>
     {{ title }}!
    </h1>
-   <ul *ngFor="let todo of todos">
-     <li>{{ todo.title }}</li>
-   </ul>
+
+   <app-todo-items  *ngFor="let todo of todos" [todo]="todo">  <!-- todo passing like property to todoitems component -->
+
+   </app-todo-items>
+   
 </div>
