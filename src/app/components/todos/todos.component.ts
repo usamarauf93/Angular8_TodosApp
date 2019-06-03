@@ -13,10 +13,14 @@ export class TodosComponent implements OnInit {
   constructor(private todoService:TodoService) { }
 
   ngOnInit() {
-    this.title = "Todos List";
      this.todoService.getTodos().subscribe(todos => {
        this.todos = todos;
      });
   }
-
+  deleteTodo(todo:Todo){
+    // delete from UI , filter is like foreach
+    this.todos = this.todos.filter( t => t.id !== todo.id);
+    // delete on server
+    this.todoService.deleteTodo(todo).subscribe();
+  }
 }

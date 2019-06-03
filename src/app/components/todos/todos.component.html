@@ -1,9 +1,11 @@
 <div >
-  <h1>
-    {{ title }}!
-   </h1>
 
-   <app-todo-items  *ngFor="let todo of todos" [todo]="todo">  <!-- todo passing like property to todoitems component -->
+
+   <app-todo-items  
+    *ngFor="let todo of todos" 
+    [todo]="todo"
+    (deleteTodo)="deleteTodo($event)"
+   >  <!-- todo passing like property to todoitems component -->
 
    </app-todo-items>
    
